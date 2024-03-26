@@ -1,0 +1,17 @@
+<div>
+    <h3>Exercise 1</h3>
+    <div>
+        <span [ngClass]="activeClass ? 'redText' : '' " >Hello ngClass</span>
+    </div>
+    <div>
+        <button (click)="activeClass = activeClass ? false : true">Toggle active</button>
+    </div>
+</div>
+<div>
+    <div>
+        <span [ngStyle]="{color: activeStyle ?  'rgb(255, 0, 0)' : 'rgb(0, 0, 0)'}" >Hello ngClass</span>
+    </div>
+    <div>
+        <button (click)="activeStyle = activeStyle ? false : true">Toggle active</button>
+    </div>
+</div>
