@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DirectivasEstructuralesComponent } from './components/directivas-estructurales/directivas-estructurales.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, DirectivasEstructuralesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

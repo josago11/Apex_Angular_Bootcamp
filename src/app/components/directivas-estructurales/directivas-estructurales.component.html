@@ -1,0 +1,46 @@
+<div>
+    <h3>Exercise 2</h3>
+    <h4>NgFor</h4>
+    <ul>
+        <li *ngFor="let i of array">{{i}}</li>
+    </ul>
+    <h4>NgIf</h4>
+    <ul>
+        <span *ngFor="let i of array"><li *ngIf="i!=='B'">{{i}}</li></span>
+    </ul>
+    <h4>NgSwitch</h4>
+    <ul>
+        <span *ngFor="let i of array">
+            <span [ngSwitch]="i">
+                <li *ngSwitchCase="'A'">1</li>
+                <li *ngSwitchCase="'B'">2</li>
+                <li *ngSwitchCase="'C'">3</li>
+            </span>
+        </span>
+    </ul>
+</div>
+<div>
+    <h3>Exercise 2 ngTemplate</h3>
+    <h4>NgFor</h4>
+    <ul>
+        <ng-template ngFor let-i [ngForOf]="array">
+            <li>{{i}}</li>
+        </ng-template>
+    </ul>
+    <h4>NgIf</h4>
+    <ul>
+        <ng-template ngFor let-i [ngForOf]="array">
+            <li *ngIf="i!=='B'">{{i}}</li>
+        </ng-template>
+    </ul>
+    <h4>NgSwitch</h4>
+    <ul>
+        <ng-template ngFor let-i [ngForOf]="array">
+            <ng-container [ngSwitch]="i">
+                <li *ngSwitchCase="'A'">1</li>
+                <li *ngSwitchCase="'B'">2</li>
+                <li *ngSwitchCase="'C'">3</li>
+            </ng-container>
+        </ng-template>
+    </ul>
+</div>
