@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CapitalizeDirective } from './directives/capitalize.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CapitalizeDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
