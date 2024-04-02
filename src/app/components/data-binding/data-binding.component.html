@@ -1,0 +1,12 @@
+<div>
+    <h3>Exercise 4 Data-binding</h3>
+    <h4>Event-binding</h4>
+    <button  (click)="triggerEvent($event)">Click me</button>
+
+    <h4>One way data binding</h4>
+    <input type="text" name="oneWay" value="{{strVar}}">
+
+    <h4>Two way data binding</h4>
+    <span>{{strVar}}</span><br>
+    <input type="text" [(ngModel)]="strVar">
+</div>
