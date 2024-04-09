@@ -11,7 +11,7 @@ import { CustomPipeCapitalizerPipe } from '../../pipes/custom-pipe-capitalizer.p
 })
 export class PipesComponent {
 
-  protected numVar:number = 34.22;
-  protected strVar:string = "hello world";
+  public numVar:number = 34.22;
+  public strVar:string = "hello world";
 
 }
