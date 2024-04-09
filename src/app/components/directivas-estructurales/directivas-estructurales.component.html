@@ -20,7 +20,7 @@
     </ul>
 </div>
 <div>
-    <h3>Exercise 2 ngTemplate</h3>
+    <h3>Exercise 2 ngContainer</h3>
     <h4>NgFor</h4>
     <ul>
         <ng-template ngFor let-i [ngForOf]="array">
@@ -29,10 +29,6 @@
     </ul>
     <h4>NgIf</h4>
     <ul>
-        Test
-        <ng-template *ngFor="let i of array">
-            <li *ngIf="i!=='B'">{{i}}</li>
-        </ng-template>
         <ng-container *ngFor="let i of array">
             <li *ngIf="i!=='B'">{{ i }}</li>
         </ng-container>
