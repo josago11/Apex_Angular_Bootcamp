@@ -1,0 +1,8 @@
+<mat-dialog-content>
+    What's your name?
+   <input type="text" [(ngModel)]="userName">
+</mat-dialog-content>
+<mat-dialog-actions style="text-align: center; width: 100%; display: inline-block;">
+    <button mat-button (click)="closeDialog()">Close</button>
+    <button mat-button [mat-dialog-close]="userName" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
