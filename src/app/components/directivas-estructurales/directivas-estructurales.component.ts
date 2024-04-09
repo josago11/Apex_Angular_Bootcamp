@@ -9,6 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './directivas-estructurales.component.scss'
 })
 export class DirectivasEstructuralesComponent {
-  protected array:String[] =["A", "B", "C"];
+  public array:String[] =["A", "B", "C"];
 
 }

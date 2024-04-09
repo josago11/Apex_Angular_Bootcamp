@@ -29,9 +29,13 @@
     </ul>
     <h4>NgIf</h4>
     <ul>
-        <ng-template ngFor let-i [ngForOf]="array">
+        Test
+        <ng-template *ngFor="let i of array">
             <li *ngIf="i!=='B'">{{i}}</li>
         </ng-template>
+        <ng-container *ngFor="let i of array">
+            <li *ngIf="i!=='B'">{{ i }}</li>
+        </ng-container>
     </ul>
     <h4>NgSwitch</h4>
     <ul>
