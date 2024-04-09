@@ -10,8 +10,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class DataBindingComponent {
 
-  protected strVar:string = "Hello World"
-  protected triggerEvent(event:MouseEvent):void{
+  public strVar:string = "Hello World"
+  public triggerEvent(event:MouseEvent):void{
     alert("I was triggered by an event");
   }
 }
