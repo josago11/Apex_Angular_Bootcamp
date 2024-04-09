@@ -8,7 +8,7 @@ import { TwoService } from '../../../injectable/services/two.service';
   templateUrl: './component-two.component.html'
 })
 export class ComponentTwoComponent {
-  constructor(protected twoService:TwoService){
+  constructor(public twoService:TwoService){
 
   }
 

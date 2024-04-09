@@ -8,7 +8,7 @@ import { TwoService } from '../../services/two.service';
   templateUrl: './component-one.component.html'
 })
 export class ComponentOneComponent {
-  constructor(protected two:TwoService){
+  constructor(public two:TwoService){
   
   }
 
