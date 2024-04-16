@@ -1,1 +1,8 @@
 <h2>Apex Angular Bootcamp</h2>
+<nav>
+    <button [routerLink]="['/']">Home</button>
+    <button [routerLink]="['/simpleroute']">Simple route</button>
+    <button [routerLink]="['/lazyloading']">Lazy loading</button>
+    <button [routerLink]="['/lazyloading//slug/hello']">Child route with dynamic slug</button>
+</nav>
+<router-outlet></router-outlet>
