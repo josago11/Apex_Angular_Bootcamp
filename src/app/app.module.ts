@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DirestPipesCompoInjectModule } from './direst-pipes-compo-inject/direst-pipes-compo-inject.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { DirestPipesCompoInjectModule } from './direst-pipes-compo-inject/direst
     AppRoutingModule,
     DirestPipesCompoInjectModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
