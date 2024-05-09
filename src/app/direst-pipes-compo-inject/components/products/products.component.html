@@ -1,0 +1,12 @@
+<label for="offers">Offers</label><input (change)="filterOffers()" name="offers" type="checkbox">
+<div>
+    <div *ngFor="let product of products|filter:pagItems: offers" class="product">
+        <span>{{product.id}}</span>
+        <span>{{product.title}}</span>
+        <span><img src="{{product.photos[0]}}"></span>
+        <button [routerLink]="['/products/detail/'+product.id]">Ver detalle</button>
+    </div>
+</div>
+<div>
+    <app-pagination itemsNum={{itemsNum}} (currentPageEmit)="getCurrentPage($event)"></app-pagination>
+</div>

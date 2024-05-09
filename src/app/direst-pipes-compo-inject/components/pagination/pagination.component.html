@@ -1,0 +1,3 @@
+<button (click)="btnHandler('prvBtn')" id="prvBtn">Previous</button>
+<button *ngFor="let num of pagArray" (click)="btnHandler(num+'')">{{num}}</button>
+<button (click)="btnHandler('nxtBtn')" id="nxtBtn">Next</button>

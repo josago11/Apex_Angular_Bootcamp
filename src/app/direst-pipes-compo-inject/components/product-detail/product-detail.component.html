@@ -1,0 +1,15 @@
+<button [routerLink]="['/products']">Regresar</button>
+<div>
+    <div>{{product?.title}}</div>
+    <div>
+        <div class="price" *ngFor="let price of pricesArray">
+            <span>Modelo: {{price[0]}}</span> 
+            <span [ngStyle]="{'text-decoration':product?.offerDiscount != undefined  ? 'line-through' : 'none' }">Precio: {{price[1]|roundUp|currency:'MXN':"symbol"}}</span>
+            <span class="discount" *ngIf="product?.offerDiscount != undefined">Precio final: {{price[1]|applyDiscount:product?.offerDiscount|roundUp|currency:'MXN':"symbol"}}</span>
+        </div>
+    </div>
+    <div>{{product?.description}}</div>
+    <div>
+        <span *ngFor="let pho of product?.photos"><img src="{{pho}}"></span>
+    </div>
+</div>
