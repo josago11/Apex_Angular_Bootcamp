@@ -10,6 +10,10 @@
     </div>
     <div>{{product?.description}}</div>
     <div>
-        <span *ngFor="let pho of product?.photos"><img src="{{pho}}"></span>
+        <span *ngFor="let pho of product?.photos; index as i"><img *ngIf="showPhoto==(i+1)" src="{{pho}}"></span>
+        <div>
+            <button (click)="showPhotoNumber(-1)">Anterior</button>
+            <button (click)="showPhotoNumber(1)">Siguiente</button>
+        </div>
     </div>
 </div>

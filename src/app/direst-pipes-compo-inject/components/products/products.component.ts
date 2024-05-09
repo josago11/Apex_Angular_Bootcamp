@@ -3,8 +3,6 @@ import { Item } from '../../interfaces/item';
 import { items } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
 import { Subscription, toArray } from 'rxjs';
-import { FilterPipe } from '../../pipes/filter.pipe';
-
 
 
 @Component({
@@ -20,7 +18,7 @@ export class ProductsComponent {
   public offers:boolean= false;
   public itemsNum:number=0;
 
-  constructor(protected productService:ProductService, protected filterPipe:FilterPipe){
+  constructor(protected productService:ProductService){
 
   }
 
@@ -42,7 +40,7 @@ export class ProductsComponent {
   public filterOffers():void{
     this.offers = !this.offers;
     this.pagItems = 1;
-    this.itemsNum = (this.offers) ? this.filterPipe.transform(items, this.pagItems, this.offers).length : items.length;
+    this.itemsNum = (this.offers) ? items.filter(i=>i.offerDiscount != undefined).length : items.length;
   }
   
 

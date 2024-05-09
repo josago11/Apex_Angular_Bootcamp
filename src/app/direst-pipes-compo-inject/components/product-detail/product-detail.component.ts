@@ -19,6 +19,8 @@ export class ProductDetailComponent {
 
   public finalPrice:number = 0; 
 
+  public showPhoto:number = 1;
+
   constructor(private readonly activatedRoute: ActivatedRoute, private productService:ProductService){
 
   }
@@ -34,11 +36,15 @@ export class ProductDetailComponent {
     });
     let propArray = Object.getOwnPropertyNames(this.product?.prices);
     this.pricesArray = propArray.map(key => [key, this.product?.prices[key]]);
-    console.log(this.pricesArray);
-    console.log(this.product?.prices);
     
   }
 
+  public showPhotoNumber(action:number):void{
+    if(action === -1)
+      this.showPhoto = (this.showPhoto == 1) ? 1 : this.showPhoto-1;
+    else
+      this.showPhoto = (this.showPhoto == (this.product?.photos?.length)) ? this.showPhoto : this.showPhoto+1;
+  }
 
   public ngOnDestroy():void{
     this.subProductId.unsubscribe();
