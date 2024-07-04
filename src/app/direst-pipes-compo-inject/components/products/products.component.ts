@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Item } from '../../interfaces/item';
 import { items } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
-import { Subscription, toArray } from 'rxjs';
+import { Subscription } from 'rxjs';
+import {MatDialog } from '@angular/material/dialog';
+import { AddProductComponent } from '../add-product/add-product.component';
 
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrl: './products.component.scss'
+  styleUrl: './products.component.scss',
+  
 })
 export class ProductsComponent {
 
@@ -18,7 +21,7 @@ export class ProductsComponent {
   public offers:boolean= false;
   public itemsNum:number=0;
 
-  constructor(protected productService:ProductService){
+  constructor(protected productService:ProductService, public dialog: MatDialog){
 
   }
 
@@ -42,8 +45,18 @@ export class ProductsComponent {
     this.pagItems = 1;
     this.itemsNum = (this.offers) ? items.filter(i=>i.offerDiscount != undefined).length : items.length;
   }
-  
 
+  public newProduct():void{
+    const dialogRef = this.dialog.open(AddProductComponent, {
+      //data: this.userName
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      //this.userName = result;
+    });
+
+  }
+  
   public ngOnDestroy():void{
     this.productSub.unsubscribe();
   }

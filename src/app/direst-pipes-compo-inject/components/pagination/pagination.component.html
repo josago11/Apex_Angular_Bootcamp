@@ -1,3 +1,7 @@
-<button (click)="btnHandler('prvBtn')" id="prvBtn">Anterior</button>
-<button *ngFor="let num of pagArray" (click)="btnHandler(num+'')">{{num}}</button>
-<button (click)="btnHandler('nxtBtn')" id="nxtBtn">Siguiente</button>
+<button mat-mini-fab matTooltip="Primary" color="primary" (click)="btnHandler('prvBtn')" id="prvBtn">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+</button>
+<button  mat-button color="accent" *ngFor="let num of pagArray" (click)="btnHandler(num+'')">{{num}}</button>
+<button mat-mini-fab matTooltip="Primary" color="primary" (click)="btnHandler('nxtBtn')" id="nxtBtn">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+</button>

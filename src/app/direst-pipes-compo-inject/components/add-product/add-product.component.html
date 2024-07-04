@@ -1,0 +1,134 @@
+<mat-dialog-content>
+   <form [formGroup]="addProductForm"
+        class="m-10 border-2 border-primary rounded-md p-6 shadow-lg shadow-primary"
+        (ngSubmit)="onSubmit($event, addProductForm)"
+   >
+        <mat-form-field class="w-full" color="primary">
+            <mat-label>Title</mat-label>
+            <input
+                matInput
+                type="text"
+                formControlName="title"
+                #titleRef
+            />
+            @if (titleRef.value) {
+            <button
+                type="button"
+                matSuffix
+                mat-icon-button
+                matTooltip="clear"
+                matTooltipPosition="above"
+                (click)="addProductForm.controls.title.reset()">
+                <mat-icon>close</mat-icon>
+            </button>
+            }
+        </mat-form-field>
+        <mat-form-field class="w-full" color="primary">
+            <mat-label>Offer Discount</mat-label>
+                <input
+                    matInput
+                    type="number"
+                    formControlName="offerDiscount"
+                    #offerDiscountRef
+                />
+                @if (titleRef.value) {
+                <button
+                    type="button"
+                    matSuffix
+                    mat-icon-button
+                    matTooltip="clear"
+                    matTooltipPosition="above"
+                    (click)="addProductForm.controls.offerDiscount.reset()">
+                    <mat-icon>close</mat-icon>
+                </button>
+                }
+        </mat-form-field>
+        <mat-form-field class="w-full" color="primary">
+            <mat-label>Description</mat-label>
+                <textarea
+                    matInput
+                    type="text"
+                    formControlName="description"
+                    #descriptionRef
+                >
+                </textarea>
+                @if (titleRef.value) {
+                <button
+                    type="button"
+                    matSuffix
+                    mat-icon-button
+                    matTooltip="clear"
+                    matTooltipPosition="above"
+                    (click)="addProductForm.controls.description.reset()">
+                    <mat-icon>close</mat-icon>
+                </button>
+                }
+        </mat-form-field>
+        
+        <div class="flex justify-end">
+            <button
+              type="button"
+              mat-mini-fab
+              color="primary"
+              matTooltip="add photo"
+              matTooltipPosition="above"
+              type="button"
+              (click)="addPhoto()"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          
+        @for (photo of addProductForm.controls.photos.controls; track $index) {
+            <fieldset [formGroupName]="$index">
+                <mat-form-field class="w-full" color="primary">
+                    <mat-label>Photo {{$index + 1}}</mat-label>
+                        <input
+                            matInput
+                            type="text"
+                            [formControlName]="$index"
+                            #photosRef
+                        >
+                        @if (photosRef.value) {
+                        <button
+                            type="button"
+                            matSuffix
+                            mat-icon-button
+                            matTooltip="clear"
+                            matTooltipPosition="above"
+                            (click)=" addProductForm.controls.photos.at($index).controls.url.reset()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                        }
+                </mat-form-field>
+                @if ($count > 1) {
+                    <div class="ml-4">
+                      <button
+                        type="button"
+                        mat-mini-fab
+                        color="primary"
+                        matTooltipPosition="above"
+                        type="button"
+                        (click)="removePhoto($index)"
+                      >
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </div>
+                    }
+            </fieldset>
+        }
+        <button
+            type="button"
+            mat-mini-fab
+            color="primary"
+            matTooltipPosition="above"
+            type="submit"
+        >
+        <mat-icon>save</mat-icon>
+      </button>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions style="text-align: center; width: 100%; display: inline-block;">
+    <button mat-button>Close</button>
+    <button mat-button cdkFocusInitial>Save</button>
+</mat-dialog-actions>

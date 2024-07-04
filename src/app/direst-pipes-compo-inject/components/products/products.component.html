@@ -1,4 +1,7 @@
 <label for="offers">Offers</label><input (change)="filterOffers()" name="offers" type="checkbox">
+<button mat-mini-fab color="primary" aria-label="add" (click)="newProduct()">
+    <mat-icon>add</mat-icon>
+</button>
 <div>
     <div *ngFor="let product of products|filter:pagItems: offers" class="product">
         <span>{{product.id}}</span>

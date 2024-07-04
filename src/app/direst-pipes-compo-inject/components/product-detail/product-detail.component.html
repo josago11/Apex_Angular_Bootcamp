@@ -12,8 +12,12 @@
     <div>
         <span *ngFor="let pho of product?.photos; index as i"><img *ngIf="showPhoto==(i+1)" src="{{pho}}"></span>
         <div>
-            <button (click)="showPhotoNumber(-1)">Anterior</button>
-            <button (click)="showPhotoNumber(1)">Siguiente</button>
+            <button mat-mini-fab matTooltip="Primary" color="primary" (click)="showPhotoNumber(-1)" id="prvBtn">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+            <button mat-mini-fab matTooltip="Primary" color="primary" (click)="showPhotoNumber(1)" id="nxtBtn">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
         </div>
     </div>
 </div>
