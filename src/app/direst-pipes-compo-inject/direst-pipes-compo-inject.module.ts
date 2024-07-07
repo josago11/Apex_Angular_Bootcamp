@@ -15,6 +15,7 @@ import {MatDialogModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDi
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,8 +39,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatDialogClose,
-    MatDialogTitle,
     MatDialogContent,
+    FormsModule
   ],
   providers:[
     FilterPipe

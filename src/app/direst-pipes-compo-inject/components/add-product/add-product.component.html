@@ -1,9 +1,9 @@
-<mat-dialog-content>
-   <form [formGroup]="addProductForm"
-        class="m-10 border-2 border-primary rounded-md p-6 shadow-lg shadow-primary"
-        (ngSubmit)="onSubmit($event, addProductForm)"
-   >
-        <mat-form-field class="w-full" color="primary">
+<form [formGroup]="addProductForm"
+class="m-10 border-2 border-primary rounded-md p-6 shadow-lg shadow-primary"
+(ngSubmit)="onSubmit($event, addProductForm)"
+>
+  <mat-dialog-content style="width: 650px;">
+        <mat-form-field class="w-full" color="primary" style="display: block;">
             <mat-label>Title</mat-label>
             <input
                 matInput
@@ -63,7 +63,7 @@
                     ></ng-container>
                 </mat-error>
         </mat-form-field>
-        <mat-form-field class="w-full" color="primary">
+        <mat-form-field class="w-full" color="primary" style="display: block;">
             <mat-label>Description</mat-label>
                 <textarea
                     matInput
@@ -99,7 +99,7 @@
             <button
             type="button"
             mat-mini-fab
-            color="accent"
+            color="primary"
             matTooltipPosition="above"
             type="button"
             (click)="addPrice()"
@@ -191,8 +191,6 @@
                 
             }
         </fieldset>
-        
-
         <div class="flex justify-end">
             <button
               type="button"
@@ -209,7 +207,7 @@
         <fieldset class="fieldset mt-4" formArrayName="photos">
             @for (photo of addProductForm.controls.photos.controls; track photo) {
                 <mat-form-field class="w-full" color="primary">
-                    <mat-label>Photo {{$index}}</mat-label>
+                    <mat-label>Photo {{$index + 1}}</mat-label>
                         <input
                             matInput
                             type="text"
@@ -254,24 +252,12 @@
                     } 
             }
         </fieldset>
-        <button
-            type="button"
-            mat-mini-fab
-            color="primary"
-            matTooltipPosition="above"
-            type="submit"
-            [disabled]="addProductForm.invalid"
-            [mat-dialog-close]="newProduct"
-        >
-        <mat-icon>save</mat-icon>
-      </button>
-    </form>
-</mat-dialog-content>
-<mat-dialog-actions style="text-align: center; width: 100%; display: inline-block;">
-    <button mat-button (click)="closeDialog()">Close</button>
-    <button mat-button [mat-dialog-close]="newProduct" cdkFocusInitial>Save</button>
-</mat-dialog-actions>
-
+      </mat-dialog-content>
+      <mat-dialog-actions style="text-align: center; width: 100%; display: inline-block;">
+          <button mat-button (click)="closeDialog()">Close</button>
+          <button mat-button [mat-dialog-close]="newProduct" [disabled]="addProductForm.invalid" type="submit"> <mat-icon>save</mat-icon>Save</button>
+      </mat-dialog-actions>
+</form>
 
 <ng-template #formErrorsRef let-formControl>
     @if (formControl.hasError('required')) {

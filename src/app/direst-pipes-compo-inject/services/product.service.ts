@@ -9,7 +9,7 @@ import { combineLatest, merge } from 'rxjs/operators';
 })
 export class ProductService {
 
-  private source:Observable<Item> = from(items)
+  private source:Observable<Item> = from(items);
 
   constructor() { }
 
@@ -21,6 +21,10 @@ export class ProductService {
   public getProduct(id:string):Observable<Item>{
     
     return this.source.pipe(filter(i => i.id == id));
+  }
+
+  public filterProduct(text:string):Observable<Item>{
+    return this.source.pipe(filter(i => i.title.toLowerCase().includes(text.toLowerCase())));
   }
 
   public addProduct(newProduct:Item){

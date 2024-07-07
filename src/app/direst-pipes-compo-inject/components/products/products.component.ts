@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Item } from '../../interfaces/item';
 import { items } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
@@ -20,6 +20,8 @@ export class ProductsComponent {
   public pagItems:number = 1;
   public offers:boolean= false;
   public itemsNum:number=0;
+  protected filterValue:string = '';
+  protected readonly filterLabel: string = 'Filter products...';
 
   constructor(protected productService:ProductService, public dialog: MatDialog){
 
@@ -27,6 +29,7 @@ export class ProductsComponent {
 
   public ngOnInit():void{
     this.getProducts();
+
   }
 
   public getProducts():void{
@@ -66,6 +69,18 @@ export class ProductsComponent {
 
   }
   
+  protected filterChangeHandler(event: string): void {
+    let indx = 0;
+    this.products = new Array<Item>;
+    this.productService.filterProduct(this.filterValue).subscribe(
+      (products) =>{
+        this.products[indx] = products;
+        indx ++;
+      }
+    );
+    this.itemsNum = this.products.length;
+  }
+
   public ngOnDestroy():void{
     this.productSub.unsubscribe();
   }

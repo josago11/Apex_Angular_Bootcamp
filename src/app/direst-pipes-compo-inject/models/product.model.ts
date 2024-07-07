@@ -8,7 +8,6 @@ export const items:Item[] =[
             "20x20": 10.10,
             "20x30": 10.00
           },
-          offerDiscount: 0.20,
           photos: [
             "https://api.slingacademy.com/public/sample-photos/10.jpeg",
             "https://api.slingacademy.com/public/sample-photos/11.jpeg",

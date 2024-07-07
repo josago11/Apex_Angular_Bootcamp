@@ -1,13 +1,28 @@
 .product{
-    background-color: cadetblue;
+    background-color: #3bada2;
     width: 300px;
-    height: 300px;
-    border: 5px solid gray;
+    height: 320px;
+    border: 2px solid  #3a3a3a;
     margin: 10px;
     display: inline-block;
     padding: 5px;
+    text-align: center;
+    font-size: large;
 }
 .product span img{
     width: 297px;
     height: 260px;
+}
+#conContainer{
+    background-color: #3a3a3a;
+    text-align: center;
+    padding-top: 10px;
+}
+#conContainer button{
+    margin-left: 100px;
+}
+
+#conContainer label{
+    margin-left: 50px;
+    color: #3bada2;
 }
