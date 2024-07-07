@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, filter, from, of } from 'rxjs';
+import { BehaviorSubject, Observable, filter, from, zip } from 'rxjs';
 import { items } from '../models/product.model';
 import { Item } from '../interfaces/item';
+import { combineLatest, merge } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,16 @@ export class ProductService {
   public getProducts():Observable<Item>{
 
     return this.source;
-
   }
 
   public getProduct(id:string):Observable<Item>{
     
     return this.source.pipe(filter(i => i.id == id));
   }
+
+  public addProduct(newProduct:Item){
+    items.push(newProduct);
+    this.source = from(items);
+  }
+
 }

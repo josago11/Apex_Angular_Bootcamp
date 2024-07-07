@@ -5,14 +5,15 @@ export type PricesFormT = FormGroup<{
     price:FormControl<number>
 }>;
 
-export type PhotosFormT = FormGroup<{
-    url:FormControl<string>;
-}>;
+export type PhotosFormT = FormControl<string>;
+
+export type PhotoT =  FormControl<string>;
+
 
 export type ResumeFormGroupT = FormGroup<{
     title: FormControl<string>;
     prices: FormArray<PricesFormT>;
     offerDiscount: FormControl<number>;
-    photos: FormArray<PhotosFormT>;
+    photos: FormArray<PhotoT>;
     description: FormControl<string>;
   }>;

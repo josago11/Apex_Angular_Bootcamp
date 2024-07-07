@@ -26,6 +26,10 @@ export class ProductsComponent {
   }
 
   public ngOnInit():void{
+    this.getProducts();
+  }
+
+  public getProducts():void{
     let indx = 0;
     this.productSub = this.productService.getProducts().subscribe(
       (products)=>{
@@ -47,12 +51,17 @@ export class ProductsComponent {
   }
 
   public newProduct():void{
+    let newItem = {} as Item;
     const dialogRef = this.dialog.open(AddProductComponent, {
-      //data: this.userName
+      data: newItem
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      //this.userName = result;
+      console.log(result);
+      newItem = result;
+      newItem.id = this.products.length + 1 + "";
+      this.productService.addProduct(newItem);
+      this.getProducts();
     });
 
   }
