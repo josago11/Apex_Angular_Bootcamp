@@ -1,0 +1,35 @@
+<div id="conContainer">
+    <mat-form-field>
+        <mat-label>{{ filterLabel }}</mat-label>
+        <input
+        matInput
+        type="text"
+        [(ngModel)]="filterValue"
+        (ngModelChange)="filterChangeHandler($event)"
+        />
+        <button
+        *ngIf="filterValue"
+        matSuffix
+        mat-icon-button
+        (click)="filterValue = ''; filterChangeHandler('')"
+        >
+        <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+    <label for="offers">Show only offers</label>
+    <input (change)="filterOffers()" name="offers" type="checkbox">
+  
+    <button mat-button color="primary" aria-label="add" (click)="newProduct()">
+        <mat-icon>add</mat-icon>Add new product
+    </button>
+</div>
+<div>
+    <div *ngFor="let product of products|filter:pagItems: offers" class="product">
+        <span>{{product.title}}</span>
+        <span><img src="{{product.photos[0]}}"></span>
+        <button mat-flat-button [routerLink]="['/products/detail/'+product.id]">See details</button>
+    </div>
+</div>
+<div style="text-align: center;">
+    <app-pagination itemsNum={{itemsNum}} (currentPageEmit)="getCurrentPage($event)"></app-pagination>
+</div>
