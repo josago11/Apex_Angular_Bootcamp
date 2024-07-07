@@ -1,20 +1,23 @@
-import { RouterModule, Routes } from '@angular/router';
-import { SimpleRouteComponent } from './components/simple-route/simple-route.component';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-export const routes: Routes = [
-    {
-        component:SimpleRouteComponent,
-        path:'simpleroute'
-    }, 
-    {
-        path:'lazyloading',
-        loadChildren:()=> import('./lazy-loading/lazy-loading.module').then(m=> m.LazyLoadingModule)
-    },
+const routes: Routes = [
+  {
+    path:"a",
+    loadChildren:()=> import('./a/a.module').then(m=> m.AModule)
+  },
+  {
+    path:"b",
+    loadChildren:()=> import('./b/b.module').then(m=> m.BModule)
+  },
+  {
+    path:"products",
+    loadChildren:()=> import('./direst-pipes-compo-inject/direst-pipes-compo-inject-routing.module').then(m=> m.DirestPipesCompoInjectRoutingModule)
+  }
 ];
 
 @NgModule({
-    exports: [RouterModule],
-    imports: [RouterModule.forRoot(routes)],
-  })
-  export class AppRoutingModule {}
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
